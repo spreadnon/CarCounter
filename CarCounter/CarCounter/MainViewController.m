@@ -7,7 +7,7 @@
 //
 
 #import "MainViewController.h"
-#import "IKCustomLeftTextField.h"
+#import "CustomLeftTextField.h"
 #import "UIControl+Block.h"
 #import "Masonry.h"
 #import "MBManager.h"
@@ -16,16 +16,16 @@
 #define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
 #define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
 @interface MainViewController ()
-@property (nonatomic,strong) IKCustomLeftTextField *insuranceField;
-@property (nonatomic,strong) IKCustomLeftTextField *insuranceDiscountField;
+@property (nonatomic,strong) CustomLeftTextField *insuranceField;
+@property (nonatomic,strong) CustomLeftTextField *insuranceDiscountField;
 @property (nonatomic,strong) UILabel *insurancePercentageLabel;
 
-@property (nonatomic,strong) IKCustomLeftTextField *businessField;
-@property (nonatomic,strong) IKCustomLeftTextField *businessDiscountField;
+@property (nonatomic,strong) CustomLeftTextField *businessField;
+@property (nonatomic,strong) CustomLeftTextField *businessDiscountField;
 @property (nonatomic,strong) UILabel *businessPercentageLabel;
 
-@property (nonatomic,strong) IKCustomLeftTextField *carAndShipField;
-@property (nonatomic,strong) IKCustomLeftTextField *carAndShipDiscountField;
+@property (nonatomic,strong) CustomLeftTextField *carAndShipField;
+@property (nonatomic,strong) CustomLeftTextField *carAndShipDiscountField;
 @property (nonatomic,strong) UILabel *allMoneyLabel;
 @property (nonatomic,strong) UILabel *saleMoneyLabel;
 
@@ -138,9 +138,9 @@
 
 }
 
-- ( IKCustomLeftTextField*)insuranceField{
+- ( CustomLeftTextField*)insuranceField{
     if (!_insuranceField) {
-        _insuranceField = [[ IKCustomLeftTextField alloc] init];
+        _insuranceField = [[ CustomLeftTextField alloc] init];
         [_insuranceField addTarget:self action:@selector(nameTextFieldEditChanged:) forControlEvents:UIControlEventEditingChanged];
         _insuranceField.title = @"交强保费:";
         _insuranceField.text = @"";
@@ -149,9 +149,9 @@
     return _insuranceField;
 }
 
-- ( IKCustomLeftTextField*)insuranceDiscountField{
+- ( CustomLeftTextField*)insuranceDiscountField{
     if (!_insuranceDiscountField) {
-        _insuranceDiscountField = [[ IKCustomLeftTextField alloc] init];
+        _insuranceDiscountField = [[ CustomLeftTextField alloc] init];
         [_insuranceDiscountField addTarget:self action:@selector(nameTextFieldEditChanged:) forControlEvents:UIControlEventEditingChanged];
         _insuranceDiscountField.title = @"交强比例:";
         _insuranceDiscountField.text = @"";
@@ -172,9 +172,9 @@
     return _insurancePercentageLabel;
 }
 
-- ( IKCustomLeftTextField*)businessField{
+- ( CustomLeftTextField*)businessField{
     if (!_businessField) {
-        _businessField = [[ IKCustomLeftTextField alloc] init];
+        _businessField = [[ CustomLeftTextField alloc] init];
         [_businessField addTarget:self action:@selector(nameTextFieldEditChanged:) forControlEvents:UIControlEventEditingChanged];
         _businessField.title = @"商业保费:";
         _businessField.text = @"";
@@ -183,9 +183,9 @@
     return _businessField;
 }
 
-- ( IKCustomLeftTextField*)businessDiscountField{
+- ( CustomLeftTextField*)businessDiscountField{
     if (!_businessDiscountField) {
-        _businessDiscountField = [[ IKCustomLeftTextField alloc] init];
+        _businessDiscountField = [[ CustomLeftTextField alloc] init];
         [_businessDiscountField addTarget:self action:@selector(nameTextFieldEditChanged:) forControlEvents:UIControlEventEditingChanged];
         _businessDiscountField.title = @"商业比例:";
         _businessDiscountField.text = @"";
@@ -207,9 +207,9 @@
     return _businessPercentageLabel;
 }
 
-- ( IKCustomLeftTextField*)carAndShipField{
+- ( CustomLeftTextField*)carAndShipField{
     if (!_carAndShipField) {
-        _carAndShipField = [[ IKCustomLeftTextField alloc] init];
+        _carAndShipField = [[ CustomLeftTextField alloc] init];
         [_carAndShipField addTarget:self action:@selector(nameTextFieldEditChanged:) forControlEvents:UIControlEventEditingChanged];
         _carAndShipField.title = @"车船税费:";
         _carAndShipField.text = @"";
@@ -218,9 +218,9 @@
     return _carAndShipField;
 }
 
-- ( IKCustomLeftTextField*)carAndShipDiscountField{
+- ( CustomLeftTextField*)carAndShipDiscountField{
     if (!_carAndShipDiscountField) {
-        _carAndShipDiscountField = [[ IKCustomLeftTextField alloc] init];
+        _carAndShipDiscountField = [[ CustomLeftTextField alloc] init];
         [_carAndShipDiscountField addTarget:self action:@selector(nameTextFieldEditChanged:) forControlEvents:UIControlEventEditingChanged];
         _carAndShipDiscountField.title = @"车船比例:";
         _carAndShipDiscountField.text = @"";

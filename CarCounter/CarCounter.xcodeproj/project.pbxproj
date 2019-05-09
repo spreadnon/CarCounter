@@ -14,7 +14,7 @@
 		3FBB80E1228470FE000E8557 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FBB80DF228470FE000E8557 /* LaunchScreen.storyboard */; };
 		3FBB80E4228470FE000E8557 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB80E3228470FE000E8557 /* main.m */; };
 		3FBB80EC228471A3000E8557 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB80EB228471A3000E8557 /* MainViewController.m */; };
-		3FBB80EF2284737B000E8557 /* IKCustomLeftTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB80EE2284737B000E8557 /* IKCustomLeftTextField.m */; };
+		3FBB80EF2284737B000E8557 /* CustomLeftTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB80EE2284737B000E8557 /* CustomLeftTextField.m */; };
 		3FBB80F222847428000E8557 /* EdgeInsetsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB80F122847428000E8557 /* EdgeInsetsLabel.m */; };
 		3FBB80F5228482D2000E8557 /* UIControl+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB80F3228482D2000E8557 /* UIControl+Block.m */; };
 		3FBB80F822848B7A000E8557 /* MBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB80F722848B7A000E8557 /* MBManager.m */; };
@@ -36,8 +36,8 @@
 		3FBB80E3228470FE000E8557 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3FBB80EA228471A3000E8557 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		3FBB80EB228471A3000E8557 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		3FBB80ED2284737B000E8557 /* IKCustomLeftTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKCustomLeftTextField.h; sourceTree = "<group>"; };
-		3FBB80EE2284737B000E8557 /* IKCustomLeftTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKCustomLeftTextField.m; sourceTree = "<group>"; };
+		3FBB80ED2284737B000E8557 /* CustomLeftTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLeftTextField.h; sourceTree = "<group>"; };
+		3FBB80EE2284737B000E8557 /* CustomLeftTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLeftTextField.m; sourceTree = "<group>"; };
 		3FBB80F022847428000E8557 /* EdgeInsetsLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EdgeInsetsLabel.h; sourceTree = "<group>"; };
 		3FBB80F122847428000E8557 /* EdgeInsetsLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EdgeInsetsLabel.m; sourceTree = "<group>"; };
 		3FBB80F3228482D2000E8557 /* UIControl+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+Block.m"; sourceTree = "<group>"; };
@@ -84,8 +84,8 @@
 				3FBB80D5228470F7000E8557 /* AppDelegate.m */,
 				3FBB80EA228471A3000E8557 /* MainViewController.h */,
 				3FBB80EB228471A3000E8557 /* MainViewController.m */,
-				3FBB80ED2284737B000E8557 /* IKCustomLeftTextField.h */,
-				3FBB80EE2284737B000E8557 /* IKCustomLeftTextField.m */,
+				3FBB80ED2284737B000E8557 /* CustomLeftTextField.h */,
+				3FBB80EE2284737B000E8557 /* CustomLeftTextField.m */,
 				3FBB80F022847428000E8557 /* EdgeInsetsLabel.h */,
 				3FBB80F122847428000E8557 /* EdgeInsetsLabel.m */,
 				3FBB80F4228482D2000E8557 /* UIControl+Block.h */,
@@ -235,7 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FBB80F822848B7A000E8557 /* MBManager.m in Sources */,
-				3FBB80EF2284737B000E8557 /* IKCustomLeftTextField.m in Sources */,
+				3FBB80EF2284737B000E8557 /* CustomLeftTextField.m in Sources */,
 				3FBB80F222847428000E8557 /* EdgeInsetsLabel.m in Sources */,
 				3FBB80D9228470F7000E8557 /* ViewController.m in Sources */,
 				3FBB80E4228470FE000E8557 /* main.m in Sources */,

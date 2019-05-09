@@ -1,20 +1,20 @@
 //
-//  IKCustomLeftTextField.m
+//  CustomLeftTextField.m
 //  IKToolsModule
 //
-//  Created by iOS123 on 2019/1/30.
-//  Copyright © 2019 HU. All rights reserved.
+//  Created by jeremy on 2019/5/9.
+//  Copyright © 2019 jeremy. All rights reserved.
 //
 
-#import "IKCustomLeftTextField.h"
+#import "CustomLeftTextField.h"
 #import "EdgeInsetsLabel.h"
 static float leftGap = 8.0;
-@interface IKCustomLeftTextField()
+@interface CustomLeftTextField()
 @property (nonatomic,strong) EdgeInsetsLabel *titleLabel;
 
 @end
 
-@implementation IKCustomLeftTextField
+@implementation CustomLeftTextField
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
