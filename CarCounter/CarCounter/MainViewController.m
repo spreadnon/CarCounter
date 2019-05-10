@@ -355,6 +355,9 @@
             ws.carAndShipField.text = @"";
             ws.carAndShipDiscountField.text = @"";
             ws.carAndShipDetailLabel.text =  @"车船优惠：0.0";
+            
+            ws.saleMoneyLabel.text = [NSString stringWithFormat:@"手续费合计：0.0元"];
+            ws.allMoneyLabel.text = [NSString stringWithFormat:@"应收净费：0.0元"];
         }];
     }
     return _cleanBtn;
