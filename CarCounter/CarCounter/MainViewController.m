@@ -19,13 +19,17 @@
 @property (nonatomic,strong) CustomLeftTextField *insuranceField;
 @property (nonatomic,strong) CustomLeftTextField *insuranceDiscountField;
 @property (nonatomic,strong) UILabel *insurancePercentageLabel;
+@property (nonatomic,strong) UILabel *insuranceDetailLabel;
 
 @property (nonatomic,strong) CustomLeftTextField *businessField;
 @property (nonatomic,strong) CustomLeftTextField *businessDiscountField;
 @property (nonatomic,strong) UILabel *businessPercentageLabel;
+@property (nonatomic,strong) UILabel *businessDetailLabel;
 
 @property (nonatomic,strong) CustomLeftTextField *carAndShipField;
 @property (nonatomic,strong) CustomLeftTextField *carAndShipDiscountField;
+@property (nonatomic,strong) UILabel *carAndShipDetailLabel;
+
 @property (nonatomic,strong) UILabel *allMoneyLabel;
 @property (nonatomic,strong) UILabel *saleMoneyLabel;
 
@@ -73,10 +77,19 @@
         make.height.mas_equalTo(50);
     }];
     
+    [self.view addSubview:self.insuranceDetailLabel];
+    [self.insuranceDetailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.insuranceDiscountField.mas_bottom).offset(5);
+        make.right.mas_equalTo(-10);
+        make.left.mas_equalTo(10);
+        make.height.mas_equalTo(50);
+    }];
+    
+    
     ///2
     [self.view addSubview:self.businessField];
     [self.businessField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.insuranceField.mas_bottom).offset(10);
+        make.top.equalTo(self.insuranceDetailLabel.mas_bottom).offset(10);
         make.left.mas_equalTo(10);
         make.height.mas_equalTo(50);
         make.width.mas_equalTo(firstWidth/2);
@@ -85,7 +98,7 @@
     
     [self.view addSubview:self.businessPercentageLabel];
     [self.businessPercentageLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.insuranceField.mas_bottom).offset(10);
+        make.top.equalTo(self.insuranceDetailLabel.mas_bottom).offset(10);
         make.right.mas_equalTo(-10);
         make.height.mas_equalTo(50);
         make.width.mas_equalTo(40);
@@ -94,16 +107,25 @@
     
     [self.view addSubview:self.businessDiscountField];
     [self.businessDiscountField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.insuranceField.mas_bottom).offset(10);
+        make.top.equalTo(self.insuranceDetailLabel.mas_bottom).offset(10);
         make.height.mas_equalTo(50);
         make.left.equalTo(self.insuranceField.mas_right).offset(10);
         make.right.equalTo(self.businessPercentageLabel.mas_left).offset(-10);
     }];
     
+    
+    [self.view addSubview:self.businessDetailLabel];
+    [self.businessDetailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.businessDiscountField.mas_bottom).offset(10);
+        make.right.mas_equalTo(-10);
+        make.left.mas_equalTo(10);
+        make.height.mas_equalTo(50);
+    }];
+    
     ///3
     [self.view addSubview:self.carAndShipField];
     [self.carAndShipField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.businessField.mas_bottom).offset(10);
+        make.top.equalTo(self.businessDetailLabel.mas_bottom).offset(10);
         make.left.mas_equalTo(10);
         make.height.mas_equalTo(50);
         make.width.mas_equalTo(SCREEN_WIDTH/2-5);
@@ -111,17 +133,26 @@
     
     [self.view addSubview:self.carAndShipDiscountField];
     [self.carAndShipDiscountField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.businessField.mas_bottom).offset(10);
+        make.top.equalTo(self.businessDetailLabel.mas_bottom).offset(10);
         make.left.equalTo(self.carAndShipField.mas_right).offset(10);
         make.right.mas_equalTo(-10);
         make.height.mas_equalTo(50);
         make.width.mas_equalTo(SCREEN_WIDTH/2-20);
     }];
     
+    [self.view addSubview:self.carAndShipDetailLabel];
+    [self.carAndShipDetailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.carAndShipDiscountField.mas_bottom).offset(10);
+        make.right.mas_equalTo(-10);
+        make.left.mas_equalTo(10);
+        make.height.mas_equalTo(50);
+    }];
+    
+    
     ///4
     [self.view addSubview:self.saleMoneyLabel];
     [self.saleMoneyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.carAndShipField.mas_bottom).offset(10);
+        make.top.equalTo(self.carAndShipDetailLabel.mas_bottom).offset(10);
         make.left.mas_equalTo(10);
         make.right.mas_equalTo(-10);
         make.height.mas_equalTo(50);
@@ -163,7 +194,7 @@
 - (UILabel *)insurancePercentageLabel{
     if (!_insurancePercentageLabel) {
         _insurancePercentageLabel = [[UILabel alloc]initWithFrame:CGRectMake(0,0, 50, 50)];
-        _insurancePercentageLabel.text = @"÷ 1.06";
+        _insurancePercentageLabel.text =  @"÷ 1.06";
         _insurancePercentageLabel.font = [UIFont systemFontOfSize:13];
         _insurancePercentageLabel.numberOfLines = 1;
         _insurancePercentageLabel.textAlignment = NSTextAlignmentRight;
@@ -171,6 +202,20 @@
     }
     return _insurancePercentageLabel;
 }
+
+- (UILabel *)insuranceDetailLabel{
+    if (!_insuranceDetailLabel) {
+        _insuranceDetailLabel = [[UILabel alloc]initWithFrame:CGRectMake(0,0, 50, 50)];
+        _insuranceDetailLabel.text = @"交强优惠：0.0";
+        _insuranceDetailLabel.font = [UIFont systemFontOfSize:13];
+        _insuranceDetailLabel.numberOfLines = 1;
+        _insuranceDetailLabel.textAlignment = NSTextAlignmentRight;
+        _insuranceDetailLabel.textColor = [self colorWithHexString:@"#88889C" alpha:1.0];
+    }
+    return _insuranceDetailLabel;
+}
+
+
 
 - ( CustomLeftTextField*)businessField{
     if (!_businessField) {
@@ -207,6 +252,19 @@
     return _businessPercentageLabel;
 }
 
+- (UILabel *)businessDetailLabel{
+    if (!_businessDetailLabel) {
+        _businessDetailLabel = [[UILabel alloc]initWithFrame:CGRectMake(0,0, 50, 50)];
+        _businessDetailLabel.text = @"商业优惠：0.0";
+        _businessDetailLabel.font = [UIFont systemFontOfSize:13];
+        _businessDetailLabel.numberOfLines = 1;
+        _businessDetailLabel.textAlignment = NSTextAlignmentRight;
+        _businessDetailLabel.textColor = [self colorWithHexString:@"#88889C" alpha:1.0];
+    }
+    return _businessDetailLabel;
+}
+
+
 - ( CustomLeftTextField*)carAndShipField{
     if (!_carAndShipField) {
         _carAndShipField = [[ CustomLeftTextField alloc] init];
@@ -228,6 +286,19 @@
     }
     return _carAndShipDiscountField;
 }
+
+- (UILabel *)carAndShipDetailLabel{
+    if (!_carAndShipDetailLabel) {
+        _carAndShipDetailLabel = [[UILabel alloc]initWithFrame:CGRectMake(0,0, 50, 50)];
+        _carAndShipDetailLabel.text = @"车船优惠：0.0";
+        _carAndShipDetailLabel.font = [UIFont systemFontOfSize:13];
+        _carAndShipDetailLabel.numberOfLines = 1;
+        _carAndShipDetailLabel.textAlignment = NSTextAlignmentRight;
+        _carAndShipDetailLabel.textColor = [self colorWithHexString:@"#88889C" alpha:1.0];
+    }
+    return _carAndShipDetailLabel;
+}
+
 
 - (UILabel *)saleMoneyLabel{
     if (!_saleMoneyLabel) {
@@ -275,12 +346,15 @@
             
             ws.insuranceField.text = @"";
             ws.insuranceDiscountField.text = @"";
+            ws.insuranceDetailLabel.text = @"交强优惠：0.0";
             
             ws.businessField.text = @"";
             ws.businessDiscountField.text = @"";
+            ws.businessDetailLabel.text = @"商业优惠：0.0";
             
             ws.carAndShipField.text = @"";
             ws.carAndShipDiscountField.text = @"";
+            ws.carAndShipDetailLabel.text =  @"车船优惠：0.0";
         }];
     }
     return _cleanBtn;
@@ -299,54 +373,58 @@
         [_calculationbBtn addActionforControlEvents:UIControlEventTouchUpInside Completion:^{
             [ws.view endEditing:YES];
             
-            if (ws.insuranceField.text.length == 0 && ws.insuranceDiscountField.text.length == 0 && ws.businessField.text.length == 0 && ws.businessDiscountField.text.length == 0 &&
-                ws.carAndShipField.text.length == 0 && ws.carAndShipDiscountField.text.length == 0) {
-                [MBManager showBriefAlert:@"请输入正确数值"];
-                return ;
-            }
-            
-            
             CGFloat insurance = 1.0;
-            if (ws.insuranceDiscountField.text.length == 0 || [ws.insuranceDiscountField.text isEqualToString:@"0"]  || [ws.insuranceDiscountField.text isEqualToString:@"0.0"]) {
-                insurance = 1.0;
-            }else{
+            NSString *insuranceSaleMoney = @"0.0";
+            if (ws.insuranceDiscountField.text.length > 0) {
                 insurance = [ws.insuranceDiscountField.text floatValue];
+                insuranceSaleMoney = [NSString stringWithFormat:@"%.2f",[ws.insuranceField.text floatValue] * insurance / 1.06];
             }
-            NSString *insuranceMoney = [NSString stringWithFormat:@"%f",[ws.insuranceField.text floatValue] * insurance / 1.06];
-            NSString *insuranceSaleMoney = [NSString stringWithFormat:@"%.2f",[ws.insuranceField.text floatValue] - [insuranceMoney floatValue]];
-            
+            NSString *insuranceMoney = [NSString stringWithFormat:@"%.2f",[ws.insuranceField.text floatValue] - [insuranceSaleMoney floatValue]];
+            if (ws.insuranceDiscountField.text.length > 0) {
+                ws.insuranceDetailLabel.text = [NSString stringWithFormat:@"交强优惠：%.2f x %.2f ÷ 1.06 = %.2f",[ws.insuranceField.text floatValue],insurance,[insuranceSaleMoney floatValue]];
+            }else{
+                ws.insuranceDetailLabel.text = [NSString stringWithFormat:@"交强优惠：0.0"];
+            }
+          
             
       
             CGFloat business = 1.0;
-            if (ws.businessDiscountField.text.length == 0 || [ws.businessDiscountField.text isEqualToString:@"0"]  || [ws.businessDiscountField.text isEqualToString:@"0.0"]) {
-                business = 1.0;
-            }else{
+            NSString *businessSaleMoney = @"0.0";
+            if (ws.businessDiscountField.text.length > 0) {
                 business = [ws.businessDiscountField.text floatValue];
+                businessSaleMoney = [NSString stringWithFormat:@"%.2f",[ws.businessField.text floatValue] * business / 1.06];
             }
-            NSString *businessMoney = [NSString stringWithFormat:@"%f",[ws.businessField.text floatValue] * business / 1.06];
-            NSString *businessSaleMoney = [NSString stringWithFormat:@"%.2f",[ws.businessField.text floatValue] - [businessMoney floatValue]];
-            
+            NSString *businessMoney = [NSString stringWithFormat:@"%.2f",[ws.businessField.text floatValue] - [businessSaleMoney floatValue]];
+            if (ws.businessDiscountField.text.length > 0) {
+                ws.businessDetailLabel.text = [NSString stringWithFormat:@"商业优惠：%.2f x %.2f ÷ 1.06 = %.2f",[ws.businessField.text floatValue],business,[businessSaleMoney floatValue]];
+            }else{
+                 ws.businessDetailLabel.text = [NSString stringWithFormat:@"商业优惠：0.0"];
+            }
+         
             
             
             CGFloat carAndShip = 1.0;
-            if (ws.carAndShipDiscountField.text.length == 0 || [ws.carAndShipDiscountField.text isEqualToString:@"0"]  || [ws.carAndShipDiscountField.text isEqualToString:@"0.0"]) {
-                carAndShip = 1.0;
-            }else{
+            NSString *carAndShipSaleMoney = @"0.0";
+            if (ws.carAndShipDiscountField.text.length > 0) {
                 carAndShip = [ws.carAndShipDiscountField.text floatValue];
+                carAndShipSaleMoney = [NSString stringWithFormat:@"%f",[ws.carAndShipField.text floatValue] * carAndShip];
             }
-            NSString *carAndShipFieldMoney = [NSString stringWithFormat:@"%f",[ws.carAndShipField.text floatValue] * carAndShip];
-            NSString *carAndShipSaleMoney = [NSString stringWithFormat:@"%.2f",[ws.carAndShipField.text floatValue] - [carAndShipFieldMoney floatValue]];
+            NSString *carAndShipMoney = [NSString stringWithFormat:@"%.2f",[ws.carAndShipField.text floatValue] - [carAndShipSaleMoney floatValue]];
+            if (ws.carAndShipDiscountField.text.length > 0) {
+                ws.carAndShipDetailLabel.text =  [NSString stringWithFormat:@"车船优惠：%.2f x %.2f = %.2f",[ws.carAndShipField.text floatValue],carAndShip,[carAndShipSaleMoney floatValue]];
+            }else{
+                ws.carAndShipDetailLabel.text =  [NSString stringWithFormat:@"车船优惠：0.0"];
+            }
+           
             
             
+            NSString *saleMoney = [NSString stringWithFormat:@"%f",[insuranceSaleMoney floatValue] + [businessSaleMoney floatValue] + [carAndShipSaleMoney floatValue]];
+            ws.saleMoneyLabel.text = [NSString stringWithFormat:@"手续费合计：%.2f元",[saleMoney floatValue]];
             
-            
-            NSString *allMoney = [NSString stringWithFormat:@"%f",[insuranceSaleMoney floatValue] + [businessSaleMoney floatValue] + [carAndShipSaleMoney floatValue]];
-            
-             NSString *allSaleMoney = [NSString stringWithFormat:@"%f",[insuranceMoney floatValue] + [businessMoney floatValue] + [carAndShipFieldMoney floatValue]];
-            
+            NSString *allMoney = [NSString stringWithFormat:@"%f",[insuranceMoney floatValue] + [businessMoney floatValue] + [carAndShipMoney floatValue]];
             ws.allMoneyLabel.text = [NSString stringWithFormat:@"应收净费：%.2f元",[allMoney floatValue]];
             
-            ws.saleMoneyLabel.text = [NSString stringWithFormat:@"手续费合计：%.2f元",[allSaleMoney floatValue]];
+            
 
         }];
     }
