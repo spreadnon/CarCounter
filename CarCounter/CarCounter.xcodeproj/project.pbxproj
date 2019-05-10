@@ -19,6 +19,7 @@
 		3FBB80F5228482D2000E8557 /* UIControl+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB80F3228482D2000E8557 /* UIControl+Block.m */; };
 		3FBB80F822848B7A000E8557 /* MBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB80F722848B7A000E8557 /* MBManager.m */; };
 		608B76C2738A9E2AE01C6F12 /* Pods_CarCounter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 495A9BE8CD5A353A752FD336 /* Pods_CarCounter.framework */; };
+		F7F1F04F22858E11007AC50B /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F1F04E22858E11007AC50B /* iAd.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		3FBB80F622848B79000E8557 /* MBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBManager.h; sourceTree = "<group>"; };
 		3FBB80F722848B7A000E8557 /* MBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBManager.m; sourceTree = "<group>"; };
 		495A9BE8CD5A353A752FD336 /* Pods_CarCounter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarCounter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7F1F04E22858E11007AC50B /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7F1F04F22858E11007AC50B /* iAd.framework in Frameworks */,
 				608B76C2738A9E2AE01C6F12 /* Pods_CarCounter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,6 +118,7 @@
 		F8FAEB0A70EAE542C961975A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F7F1F04E22858E11007AC50B /* iAd.framework */,
 				495A9BE8CD5A353A752FD336 /* Pods_CarCounter.framework */,
 			);
 			name = Frameworks;

@@ -11,11 +11,11 @@
 #import "UIControl+Block.h"
 #import "Masonry.h"
 #import "MBManager.h"
-
+#import <iAd/iAd.h>
 #define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
 #define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
 #define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
-@interface MainViewController ()
+@interface MainViewController ()<ADBannerViewDelegate>
 @property (nonatomic,strong) CustomLeftTextField *insuranceField;
 @property (nonatomic,strong) CustomLeftTextField *insuranceDiscountField;
 @property (nonatomic,strong) UILabel *insurancePercentageLabel;
@@ -35,6 +35,7 @@
 
 @property (nonatomic,strong) UIButton *cleanBtn;
 @property (nonatomic,strong) UIButton *calculationbBtn;
+@property (nonatomic,strong) ADBannerView *bannerView;
 
 @end
 
@@ -166,7 +167,24 @@
         make.height.mas_equalTo(50);
     }];
     
+    ///banner
+    [self.view addSubview: self.bannerView];
+    [self.bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(0);
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(0);
+        make.height.mas_equalTo(50);
+    }];
+}
 
+- (ADBannerView *)bannerView{
+    if (!_bannerView ) {
+        _bannerView = [[ADBannerView alloc]initWithFrame:
+                      CGRectMake(0, 0, 320, 50)];
+        [_bannerView setBackgroundColor:[UIColor clearColor]];
+        _bannerView.delegate = self;
+    }
+    return _bannerView;
 }
 
 - ( CustomLeftTextField*)insuranceField{
@@ -472,4 +490,21 @@
     return [UIColor colorWithRed:((float) r / 255.0f) green:((float) g / 255.0f) blue:((float) b / 255.0f) alpha:alpha];
 }
 
+
+#pragma mark - AdViewDelegates
+
+-(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
+    NSLog(@"Error loading");
+}
+
+-(void)bannerViewDidLoadAd:(ADBannerView *)banner{
+    NSLog(@"Ad loaded");
+}
+-(void)bannerViewWillLoadAd:(ADBannerView *)banner{
+    NSLog(@"Ad will load");
+}
+-(void)bannerViewActionDidFinish:(ADBannerView *)banner{
+    NSLog(@"Ad did finish");
+    
+}
 @end
