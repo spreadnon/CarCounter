@@ -156,7 +156,7 @@
         make.top.equalTo(self.carAndShipDetailLabel.mas_bottom).offset(10);
         make.left.mas_equalTo(10);
         make.right.mas_equalTo(-10);
-        make.height.mas_equalTo(50);
+        make.height.mas_equalTo(30);
     }];
     
     [self.view addSubview:self.allMoneyLabel];
@@ -164,7 +164,7 @@
         make.top.equalTo(self.saleMoneyLabel.mas_bottom).offset(10);
         make.left.mas_equalTo(10);
         make.right.mas_equalTo(-10);
-        make.height.mas_equalTo(50);
+        make.height.mas_equalTo(30);
     }];
     
     ///banner
