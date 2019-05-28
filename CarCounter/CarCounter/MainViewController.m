@@ -12,9 +12,8 @@
 #import "Masonry.h"
 #import "MBManager.h"
 #import <iAd/iAd.h>
-#define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
-#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
-#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+#import "DefineFile.h"
+
 @interface MainViewController ()<ADBannerViewDelegate>
 @property (nonatomic,strong) CustomLeftTextField *insuranceField;
 @property (nonatomic,strong) CustomLeftTextField *insuranceDiscountField;

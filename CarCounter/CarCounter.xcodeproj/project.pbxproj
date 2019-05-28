@@ -46,6 +46,7 @@
 		3FBB80F622848B79000E8557 /* MBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBManager.h; sourceTree = "<group>"; };
 		3FBB80F722848B7A000E8557 /* MBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBManager.m; sourceTree = "<group>"; };
 		495A9BE8CD5A353A752FD336 /* Pods_CarCounter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarCounter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7B4D0BA229D38F40033B20F /* DefineFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DefineFile.h; sourceTree = "<group>"; };
 		F7F1F04E22858E11007AC50B /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -97,6 +98,7 @@
 				3FBB80F722848B7A000E8557 /* MBManager.m */,
 				3FBB80D7228470F7000E8557 /* ViewController.h */,
 				3FBB80D8228470F7000E8557 /* ViewController.m */,
+				F7B4D0BA229D38F40033B20F /* DefineFile.h */,
 				3FBB80DA228470F7000E8557 /* Main.storyboard */,
 				3FBB80DD228470FE000E8557 /* Assets.xcassets */,
 				3FBB80DF228470FE000E8557 /* LaunchScreen.storyboard */,
