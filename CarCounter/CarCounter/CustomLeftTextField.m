@@ -8,6 +8,7 @@
 
 #import "CustomLeftTextField.h"
 #import "EdgeInsetsLabel.h"
+#import "DefineFile.h"
 static float leftGap = 8.0;
 @interface CustomLeftTextField()
 @property (nonatomic,strong) EdgeInsetsLabel *titleLabel;
@@ -18,8 +19,8 @@ static float leftGap = 8.0;
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = [self colorWithHexString:@"#0084FF" alpha:0.05];
-        self.textColor = [self colorWithHexString:@"#6239FF" alpha:1.0];
+        self.backgroundColor = ZBRGBHexAlpha(0x0084FF,0.5);
+        self.textColor = ZBRGBHexAlpha(0x6239FF,1);
         self.font = [UIFont systemFontOfSize:15];
         self.clearButtonMode = UITextFieldViewModeWhileEditing;
         self.layer.cornerRadius = 3.0f;
@@ -29,39 +30,6 @@ static float leftGap = 8.0;
         
     }
     return self;
-}
-
-- (UIColor *) colorWithHexString: (NSString *)color alpha:(CGFloat)alpha{
-    NSString *cString = [[color stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
-    
-    // String should be 6 or 8 characters
-    if ([cString length] < 6) {
-        return [UIColor clearColor];
-    }
-    // 判断前缀
-    if ([cString hasPrefix:@"0X"])
-        cString = [cString substringFromIndex:2];
-    if ([cString hasPrefix:@"#"])
-        cString = [cString substringFromIndex:1];
-    if ([cString length] != 6)
-        return [UIColor clearColor];
-    // 从六位数值中找到RGB对应的位数并转换
-    NSRange range;
-    range.location = 0;
-    range.length = 2;
-    //R、G、B
-    NSString *rString = [cString substringWithRange:range];
-    range.location = 2;
-    NSString *gString = [cString substringWithRange:range];
-    range.location = 4;
-    NSString *bString = [cString substringWithRange:range];
-    // Scan values
-    unsigned int r, g, b;
-    [[NSScanner scannerWithString:rString] scanHexInt:&r];
-    [[NSScanner scannerWithString:gString] scanHexInt:&g];
-    [[NSScanner scannerWithString:bString] scanHexInt:&b];
-    
-    return [UIColor colorWithRed:((float) r / 255.0f) green:((float) g / 255.0f) blue:((float) b / 255.0f) alpha:alpha];
 }
 
 - (void)buildUI{
@@ -77,7 +45,7 @@ static float leftGap = 8.0;
         _titleLabel.font = [UIFont systemFontOfSize:13];
         _titleLabel.numberOfLines = 1;
         _titleLabel.backgroundColor = [UIColor clearColor];
-        _titleLabel.textColor = [self colorWithHexString:@"#5F5F5F" alpha:1.0];
+        _titleLabel.textColor = ZBRGBHexAlpha(0x5F5F5F,1);
         _titleLabel.contentInset = UIEdgeInsetsMake(0, leftGap, 0, 0);
     }
     return _titleLabel;

@@ -11,9 +11,7 @@
 #define kScreen_height  [[UIScreen mainScreen] bounds].size.height
 #define kScreen_width   [[UIScreen mainScreen] bounds].size.width
 #define kDefaultRect     CGRectMake(0, 0, kScreen_width, kScreen_height)
-
 #define kDefaultView [[UIApplication sharedApplication] keyWindow]
-
 #define kGloomyBlackColor  [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5]
 #define kGloomyClearCloler  [UIColor colorWithRed:1 green:1 blue:1 alpha:0]
 

@@ -215,7 +215,7 @@
         _insurancePercentageLabel.font = [UIFont systemFontOfSize:13];
         _insurancePercentageLabel.numberOfLines = 1;
         _insurancePercentageLabel.textAlignment = NSTextAlignmentRight;
-        _insurancePercentageLabel.textColor = [self colorWithHexString:@"#88889C" alpha:1.0];
+        _insurancePercentageLabel.textColor = ZBRGBHexAlpha(0x88889C,1);
     }
     return _insurancePercentageLabel;
 }
@@ -227,7 +227,7 @@
         _insuranceDetailLabel.font = [UIFont systemFontOfSize:13];
         _insuranceDetailLabel.numberOfLines = 1;
         _insuranceDetailLabel.textAlignment = NSTextAlignmentRight;
-        _insuranceDetailLabel.textColor = [self colorWithHexString:@"#88889C" alpha:1.0];
+        _insuranceDetailLabel.textColor = ZBRGBHexAlpha(0x88889C,1);
     }
     return _insuranceDetailLabel;
 }
@@ -264,7 +264,7 @@
         _businessPercentageLabel.numberOfLines = 1;
         _businessPercentageLabel.textAlignment = NSTextAlignmentRight;
         _businessPercentageLabel.backgroundColor = [UIColor clearColor];
-        _businessPercentageLabel.textColor = [self colorWithHexString:@"#88889C" alpha:1.0];
+        _businessPercentageLabel.textColor = ZBRGBHexAlpha(0x88889C,1);
     }
     return _businessPercentageLabel;
 }
@@ -276,7 +276,7 @@
         _businessDetailLabel.font = [UIFont systemFontOfSize:13];
         _businessDetailLabel.numberOfLines = 1;
         _businessDetailLabel.textAlignment = NSTextAlignmentRight;
-        _businessDetailLabel.textColor = [self colorWithHexString:@"#88889C" alpha:1.0];
+        _businessDetailLabel.textColor = ZBRGBHexAlpha(0x88889C,1);
     }
     return _businessDetailLabel;
 }
@@ -311,7 +311,7 @@
         _carAndShipDetailLabel.font = [UIFont systemFontOfSize:13];
         _carAndShipDetailLabel.numberOfLines = 1;
         _carAndShipDetailLabel.textAlignment = NSTextAlignmentRight;
-        _carAndShipDetailLabel.textColor = [self colorWithHexString:@"#88889C" alpha:1.0];
+        _carAndShipDetailLabel.textColor = ZBRGBHexAlpha(0x88889C,1);
     }
     return _carAndShipDetailLabel;
 }
@@ -327,7 +327,7 @@
         _saleMoneyLabel.backgroundColor = [UIColor clearColor];
         _saleMoneyLabel.layer.cornerRadius = 3.0f;
         _saleMoneyLabel.clipsToBounds = YES;
-        _saleMoneyLabel.textColor = [self colorWithHexString:@"#FA7268" alpha:1.0];
+        _saleMoneyLabel.textColor = ZBRGBHexAlpha(0xFA7268,1);
     }
     return _saleMoneyLabel;
 }
@@ -342,7 +342,7 @@
         _allMoneyLabel.backgroundColor = [UIColor clearColor];
         _allMoneyLabel.layer.cornerRadius = 3.0f;
         _allMoneyLabel.clipsToBounds = YES;
-        _allMoneyLabel.textColor = [self colorWithHexString:@"#FA7268" alpha:1.0];
+        _allMoneyLabel.textColor = ZBRGBHexAlpha(0xFA7268,1);
     }
     return _allMoneyLabel;
 }
@@ -355,7 +355,7 @@
         [_cleanBtn setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
         [_cleanBtn setTitle:@"清空" forState:UIControlStateNormal];
         _cleanBtn.titleLabel.font = [UIFont boldSystemFontOfSize: 15.0];
-        [_cleanBtn setTitleColor:[self colorWithHexString:@"#6A6A77" alpha:1.0] forState:UIControlStateNormal];
+        [_cleanBtn setTitleColor:ZBRGBHexAlpha(0x6A6A77,1) forState:UIControlStateNormal];
         [_cleanBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
         WS(ws)
         [_cleanBtn addActionforControlEvents:UIControlEventTouchUpInside Completion:^{
@@ -387,7 +387,7 @@
         [_calculationbBtn setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
         [_calculationbBtn setTitle:@"计算" forState:UIControlStateNormal];
         _calculationbBtn.titleLabel.font = [UIFont boldSystemFontOfSize: 15.0];
-        [_calculationbBtn setTitleColor:[self colorWithHexString:@"#20CD84" alpha:1.0] forState:UIControlStateNormal];
+        [_calculationbBtn setTitleColor:ZBRGBHexAlpha(0x20CD84,1) forState:UIControlStateNormal];
         [_calculationbBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
         WS(ws)
         [_calculationbBtn addActionforControlEvents:UIControlEventTouchUpInside Completion:^{
@@ -455,40 +455,6 @@
 - (void)nameTextFieldEditChanged:(UITextField *)textField{
     NSLog(@"textfield.text %@",textField.text);
 }
-
-- (UIColor *) colorWithHexString: (NSString *)color alpha:(CGFloat)alpha{
-    NSString *cString = [[color stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
-    
-    // String should be 6 or 8 characters
-    if ([cString length] < 6) {
-        return [UIColor clearColor];
-    }
-    // 判断前缀
-    if ([cString hasPrefix:@"0X"])
-        cString = [cString substringFromIndex:2];
-    if ([cString hasPrefix:@"#"])
-        cString = [cString substringFromIndex:1];
-    if ([cString length] != 6)
-        return [UIColor clearColor];
-    // 从六位数值中找到RGB对应的位数并转换
-    NSRange range;
-    range.location = 0;
-    range.length = 2;
-    //R、G、B
-    NSString *rString = [cString substringWithRange:range];
-    range.location = 2;
-    NSString *gString = [cString substringWithRange:range];
-    range.location = 4;
-    NSString *bString = [cString substringWithRange:range];
-    // Scan values
-    unsigned int r, g, b;
-    [[NSScanner scannerWithString:rString] scanHexInt:&r];
-    [[NSScanner scannerWithString:gString] scanHexInt:&g];
-    [[NSScanner scannerWithString:bString] scanHexInt:&b];
-    
-    return [UIColor colorWithRed:((float) r / 255.0f) green:((float) g / 255.0f) blue:((float) b / 255.0f) alpha:alpha];
-}
-
 
 #pragma mark - AdViewDelegates
 
