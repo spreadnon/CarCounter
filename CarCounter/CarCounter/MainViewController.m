@@ -11,10 +11,9 @@
 #import "UIControl+Block.h"
 #import "Masonry.h"
 #import "MBManager.h"
-#import <iAd/iAd.h>
 #import "DefineFile.h"
 
-@interface MainViewController ()<ADBannerViewDelegate>
+@interface MainViewController ()
 @property (nonatomic,strong) CustomLeftTextField *insuranceField;
 @property (nonatomic,strong) CustomLeftTextField *insuranceDiscountField;
 @property (nonatomic,strong) UILabel *insurancePercentageLabel;
@@ -34,7 +33,6 @@
 
 @property (nonatomic,strong) UIButton *cleanBtn;
 @property (nonatomic,strong) UIButton *calculationbBtn;
-@property (nonatomic,strong) ADBannerView *bannerView;
 
 @end
 
@@ -166,24 +164,6 @@
         make.height.mas_equalTo(30);
     }];
     
-    ///banner
-    [self.view addSubview: self.bannerView];
-    [self.bannerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(0);
-        make.left.mas_equalTo(0);
-        make.right.mas_equalTo(0);
-        make.height.mas_equalTo(50);
-    }];
-}
-
-- (ADBannerView *)bannerView{
-    if (!_bannerView ) {
-        _bannerView = [[ADBannerView alloc]initWithFrame:
-                      CGRectMake(0, 0, 320, 50)];
-        [_bannerView setBackgroundColor:[UIColor clearColor]];
-        _bannerView.delegate = self;
-    }
-    return _bannerView;
 }
 
 - ( CustomLeftTextField*)insuranceField{
@@ -215,7 +195,7 @@
         _insurancePercentageLabel.font = [UIFont systemFontOfSize:13];
         _insurancePercentageLabel.numberOfLines = 1;
         _insurancePercentageLabel.textAlignment = NSTextAlignmentRight;
-        _insurancePercentageLabel.textColor = ZBRGBHexAlpha(0x88889C,1);
+        _insurancePercentageLabel.textColor = ZBRGBHexAlpha(0x4A4A4A,1);
     }
     return _insurancePercentageLabel;
 }
@@ -224,10 +204,10 @@
     if (!_insuranceDetailLabel) {
         _insuranceDetailLabel = [[UILabel alloc]initWithFrame:CGRectMake(0,0, 50, 50)];
         _insuranceDetailLabel.text = @"交强优惠：0.0";
-        _insuranceDetailLabel.font = [UIFont systemFontOfSize:13];
+        _insuranceDetailLabel.font = [UIFont systemFontOfSize:15];
         _insuranceDetailLabel.numberOfLines = 1;
         _insuranceDetailLabel.textAlignment = NSTextAlignmentRight;
-        _insuranceDetailLabel.textColor = ZBRGBHexAlpha(0x88889C,1);
+        _insuranceDetailLabel.textColor = ZBRGBHexAlpha(0x9B9B9B,1);
     }
     return _insuranceDetailLabel;
 }
@@ -264,7 +244,7 @@
         _businessPercentageLabel.numberOfLines = 1;
         _businessPercentageLabel.textAlignment = NSTextAlignmentRight;
         _businessPercentageLabel.backgroundColor = [UIColor clearColor];
-        _businessPercentageLabel.textColor = ZBRGBHexAlpha(0x88889C,1);
+        _businessPercentageLabel.textColor = ZBRGBHexAlpha(0x4A4A4A,1);
     }
     return _businessPercentageLabel;
 }
@@ -273,10 +253,10 @@
     if (!_businessDetailLabel) {
         _businessDetailLabel = [[UILabel alloc]initWithFrame:CGRectMake(0,0, 50, 50)];
         _businessDetailLabel.text = @"商业优惠：0.0";
-        _businessDetailLabel.font = [UIFont systemFontOfSize:13];
+        _businessDetailLabel.font = [UIFont systemFontOfSize:15];
         _businessDetailLabel.numberOfLines = 1;
         _businessDetailLabel.textAlignment = NSTextAlignmentRight;
-        _businessDetailLabel.textColor = ZBRGBHexAlpha(0x88889C,1);
+        _businessDetailLabel.textColor = ZBRGBHexAlpha(0x9B9B9B,1);
     }
     return _businessDetailLabel;
 }
@@ -308,10 +288,10 @@
     if (!_carAndShipDetailLabel) {
         _carAndShipDetailLabel = [[UILabel alloc]initWithFrame:CGRectMake(0,0, 50, 50)];
         _carAndShipDetailLabel.text = @"车船优惠：0.0";
-        _carAndShipDetailLabel.font = [UIFont systemFontOfSize:13];
+        _carAndShipDetailLabel.font = [UIFont systemFontOfSize:15];
         _carAndShipDetailLabel.numberOfLines = 1;
         _carAndShipDetailLabel.textAlignment = NSTextAlignmentRight;
-        _carAndShipDetailLabel.textColor = ZBRGBHexAlpha(0x88889C,1);
+        _carAndShipDetailLabel.textColor = ZBRGBHexAlpha(0x9B9B9B,1);
     }
     return _carAndShipDetailLabel;
 }
@@ -327,7 +307,7 @@
         _saleMoneyLabel.backgroundColor = [UIColor clearColor];
         _saleMoneyLabel.layer.cornerRadius = 3.0f;
         _saleMoneyLabel.clipsToBounds = YES;
-        _saleMoneyLabel.textColor = ZBRGBHexAlpha(0xFA7268,1);
+        _saleMoneyLabel.textColor = ZBRGBHexAlpha(0x0076FE,1);
     }
     return _saleMoneyLabel;
 }
@@ -342,7 +322,7 @@
         _allMoneyLabel.backgroundColor = [UIColor clearColor];
         _allMoneyLabel.layer.cornerRadius = 3.0f;
         _allMoneyLabel.clipsToBounds = YES;
-        _allMoneyLabel.textColor = ZBRGBHexAlpha(0xFA7268,1);
+        _allMoneyLabel.textColor = ZBRGBHexAlpha(0x0076FE,1);
     }
     return _allMoneyLabel;
 }
@@ -387,7 +367,7 @@
         [_calculationbBtn setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
         [_calculationbBtn setTitle:@"计算" forState:UIControlStateNormal];
         _calculationbBtn.titleLabel.font = [UIFont boldSystemFontOfSize: 15.0];
-        [_calculationbBtn setTitleColor:ZBRGBHexAlpha(0x20CD84,1) forState:UIControlStateNormal];
+        [_calculationbBtn setTitleColor:ZBRGBHexAlpha(0x0076FE,1) forState:UIControlStateNormal];
         [_calculationbBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
         WS(ws)
         [_calculationbBtn addActionforControlEvents:UIControlEventTouchUpInside Completion:^{
@@ -454,22 +434,5 @@
 
 - (void)nameTextFieldEditChanged:(UITextField *)textField{
     NSLog(@"textfield.text %@",textField.text);
-}
-
-#pragma mark - AdViewDelegates
-
--(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
-    NSLog(@"Error loading");
-}
-
--(void)bannerViewDidLoadAd:(ADBannerView *)banner{
-    NSLog(@"Ad loaded");
-}
--(void)bannerViewWillLoadAd:(ADBannerView *)banner{
-    NSLog(@"Ad will load");
-}
--(void)bannerViewActionDidFinish:(ADBannerView *)banner{
-    NSLog(@"Ad did finish");
-    
 }
 @end

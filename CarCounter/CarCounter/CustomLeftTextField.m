@@ -19,8 +19,8 @@ static float leftGap = 8.0;
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = ZBRGBHexAlpha(0x0084FF,0.5);
-        self.textColor = ZBRGBHexAlpha(0x6239FF,1);
+        self.backgroundColor = ZBRGBHexAlpha(0xBFDDFF,0.5);
+        self.textColor = ZBRGBHexAlpha(0x0076FE,1);
         self.font = [UIFont systemFontOfSize:15];
         self.clearButtonMode = UITextFieldViewModeWhileEditing;
         self.layer.cornerRadius = 3.0f;
