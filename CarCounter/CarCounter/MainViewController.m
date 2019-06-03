@@ -30,6 +30,7 @@
 
 @property (nonatomic,strong) UILabel *allMoneyLabel;
 @property (nonatomic,strong) UILabel *saleMoneyLabel;
+@property (nonatomic,strong) UILabel *allBeforeMoneyLabel;
 
 @property (nonatomic,strong) UIButton *cleanBtn;
 @property (nonatomic,strong) UIButton *calculationbBtn;
@@ -148,9 +149,17 @@
     
     
     ///4
+    [self.view addSubview:self.allBeforeMoneyLabel];
+    [self.allBeforeMoneyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.carAndShipDetailLabel.mas_bottom).offset(10);
+        make.left.mas_equalTo(10);
+        make.right.mas_equalTo(-10);
+        make.height.mas_equalTo(30);
+    }];
+    
     [self.view addSubview:self.saleMoneyLabel];
     [self.saleMoneyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.carAndShipDetailLabel.mas_bottom).offset(10);
+        make.top.equalTo(self.allBeforeMoneyLabel.mas_bottom).offset(10);
         make.left.mas_equalTo(10);
         make.right.mas_equalTo(-10);
         make.height.mas_equalTo(30);
@@ -296,6 +305,20 @@
     return _carAndShipDetailLabel;
 }
 
+- (UILabel *)allBeforeMoneyLabel{
+    if (!_allBeforeMoneyLabel) {
+        _allBeforeMoneyLabel = [[UILabel alloc]initWithFrame:CGRectMake(0,0, 50, 50)];
+        _allBeforeMoneyLabel.text = @"总保费：0.0元";
+        _allBeforeMoneyLabel.font = [UIFont boldSystemFontOfSize:16];
+        _allBeforeMoneyLabel.numberOfLines = 1;
+        _allBeforeMoneyLabel.textAlignment = NSTextAlignmentRight;
+        _allBeforeMoneyLabel.backgroundColor = [UIColor clearColor];
+        _allBeforeMoneyLabel.layer.cornerRadius = 3.0f;
+        _allBeforeMoneyLabel.clipsToBounds = YES;
+        _allBeforeMoneyLabel.textColor = ZBRGBHexAlpha(0x0076FE,1);
+    }
+    return _allBeforeMoneyLabel;
+}
 
 - (UILabel *)saleMoneyLabel{
     if (!_saleMoneyLabel) {
@@ -355,6 +378,7 @@
             
             ws.saleMoneyLabel.text = [NSString stringWithFormat:@"手续费合计：0.0元"];
             ws.allMoneyLabel.text = [NSString stringWithFormat:@"应收净费：0.0元"];
+            ws.allBeforeMoneyLabel.text = [NSString stringWithFormat:@"总保费：0.0元"];
         }];
     }
     return _cleanBtn;
@@ -424,7 +448,8 @@
             NSString *allMoney = [NSString stringWithFormat:@"%f",[insuranceMoney floatValue] + [businessMoney floatValue] + [carAndShipMoney floatValue]];
             ws.allMoneyLabel.text = [NSString stringWithFormat:@"应收净费：%.2f元",[allMoney floatValue]];
             
-            
+            NSString *allBeforeMoneyStr = [NSString stringWithFormat:@"%f",[ws.insuranceField.text floatValue] + [ws.businessField.text floatValue] + [ws.carAndShipField.text floatValue]];
+            ws.allBeforeMoneyLabel.text = [NSString stringWithFormat:@"总保费：%.2f元",[allBeforeMoneyStr floatValue]];
 
         }];
     }
